@@ -51,7 +51,7 @@ menu:
     url: //yenbekbay.me/timelapses
 
 # URL
-url: https://blog.yenbekbay.me
+url: http://blog.yenbekbay.me
 root: /
 permalink: :title/
 permalink_defaults:
