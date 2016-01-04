@@ -96,24 +96,21 @@ archive_generator:
   per_page: 0
 
 # Minification
-
 html_minifier:
   enable: false
-
 css_minifier:
   enable: true
   exclude:
     - '*.min.css'
-
 js_minifier:
   enable: true
   mangle: true
   exclude:
     - '*.min.js'
-
 image_minifier:
   enable: false
 
+# Beautification
 beautify:
   types:
     - html
