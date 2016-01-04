@@ -98,7 +98,7 @@ archive_generator:
 # Minification
 
 html_minifier:
-  enable: true
+  enable: false
 
 css_minifier:
   enable: true
@@ -113,6 +113,15 @@ js_minifier:
 
 image_minifier:
   enable: false
+
+beautify:
+  types:
+    - html
+  html:
+    indent_inner_html: false
+    indent_size: 2
+    indent_with_tabs: false
+    max_preserve_newlines: 0
 
 # Date & time
 ## http://momentjs.com/docs/#/displaying/format/
