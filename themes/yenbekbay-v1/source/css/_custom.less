@@ -1,0 +1,270 @@
+@import "_variables";
+@import "_mixins";
+
+/* GitHub logo is slightly too low. */
+.fa-github::before {
+  position: relative;
+  top: -1px;
+}
+
+/* 'Read more' links on the main blog page. */
+.post-readmore {
+  a {
+    color: @gray-dark;
+    &:hover {
+      color: @brand-primary;
+    }
+  }
+  font-style: italic;
+}
+
+/* Special styling for post previews on main blog page. */
+.post {
+  p {
+    // Instead of 30px 0.
+    margin: 20px 0;
+  }
+  h2 {
+    // Instead of bootstrap default.
+    margin: 10px 0;
+  }
+}
+
+/* Make code look nice. */
+code, pre {
+  color: @brand-primary;
+  background-color: @gray-light;
+  font-size: 15px;
+  @media (min-width: 768px) {
+    font-size: 19px;
+  }
+}
+
+.nav {
+  #feed_text_link {
+    /* Small devices (tablets, 768px and up) */
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+  #feed_link {
+    font-size: 16px;
+    display: none;
+    /* Small devices (tablets, 768px and up) */
+    @media (min-width: 768px) {
+      display: inherit;
+    }
+  }
+}
+
+.content-archive {
+  ol {
+    padding-left: 0px;
+    line-height: 35px;
+  }
+  li.month {
+    padding-bottom: 30px;
+    /* Small devices (tablets, 768px and up) */
+    @media (min-width: 768px) {
+      padding-bottom: 45px;
+    }
+  }
+  li {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    a {
+      text-decoration: none;
+      color: @brand-primary;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .post-date {
+    color: @gray;
+    display: inline;
+  }
+}
+
+.content-post .post {
+  > .post-date, > .post-meta {
+    font-size: 14px;
+  }
+}
+
+.header_image_link_container {
+  position: relative;
+  a {
+    text-decoration: none;
+    i {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      color: rgba(255,255,255,0.5);
+      padding-right: 20px;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.post-pager li {
+  a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    overflow: hidden;
+    width: 100%;
+    /* Make pagers on articles half width */
+    /* Small devices (tablets, 768px and up) */
+    @media (min-width: 768px) {
+      width: 45%;
+    }
+  }
+}
+
+header {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px -50px 50px 0px inset;
+  position: relative;
+}
+
+.page-footer {
+  margin-top: 20px;
+}
+
+/* Since we can see the first few previews on large displays, the top one looks "too close" to the header. */
+.content-index {
+  hr {
+    margin: 45px 0px;
+    border-color: transparent;
+  }
+  @media (min-width: 768px) {
+    margin-top: 40px; // this 40 + the header's 50 margin = 90, the inter-item distance.
+  }
+}
+
+.container li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.under-header {
+	padding-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .intro-header .site-heading h1, .intro-header .page-heading h1 {
+    font-size: 40px;
+  }
+  .intro-header .site-heading .subheading, .intro-header .page-heading .subheading {
+    font-size: 20px;
+  }
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+iframe.twitter-tweet {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+blockquote {
+  padding: 0px 15px;
+  padding-left: 30px;
+  margin: 40px 0px;
+  font-style: none;
+  @media only screen and (min-width: 768px) {
+    padding: 0px 30px;
+    padding-left: 45px;
+    p {
+      font-size: 24px;
+    }
+  }
+}
+
+blockquote > p:first-child {
+	margin-top: 0;
+}
+
+.image-bg-fluid-height, .image-bg-fixed-height {
+  text-align: center;
+  background:  no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.image-bg-fixed-height {
+  background-color: #808080;
+  height: 250px;
+  @media only screen and (min-width: 768px) {
+    height: 450px;
+  }
+}
+
+/* Let's make those little links a little prettier. */
+
+.header-link {
+  content: "#";
+  color: rgba(189,189,189,0.25);
+  font-weight: 400;
+  &:hover, &:focus {
+    text-decoration: none;
+    color: @brand-primary;
+  }
+}
+
+.container {
+  .header-link {
+    position: absolute;
+    left:-0.25em;
+    /* The links don't fit on spall screens, so let's high them. */
+    @media only screen and (max-width: 768px) {
+      display:none;
+    }
+  }
+}
+
+/* Custom styles for projects in about page. */
+.projects {
+  margin-top: 40px;
+  > h2 {
+    padding-bottom: 25px;
+  }
+  > .project {
+    padding-bottom: 25px;
+    display: table;
+  	table-layout: fixed;
+    .icon, .description {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .icon {
+      height: 80px;
+      width: 80px;
+    }
+    .description {
+      padding-left: 15px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    padding-top: 10px;
+    > .project .icon {
+      clear: both;
+      margin: 15px 15px 0 0;
+    }
+    > .project .description {
+      padding-top: 10px;
+      padding-bottom: 15px;
+      clear: both;
+    }
+  }
+}

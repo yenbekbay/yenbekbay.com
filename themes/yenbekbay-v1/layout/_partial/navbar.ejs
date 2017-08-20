@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header page-scroll">
+      <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><%= config.menu_title %></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <%
+        if (config.menu) {
+          config.menu.forEach(item => { %>
+            <li><%- link_to(item.url, __(item.title)) %></li>
+          <% });
+        } %>
+        <li>
+          <a id="feed_text_link" href="/<%= config.feed.path %>"><%= __('Blog Feed') %></a>
+          <a id="feed_link" href="/<%= config.feed.path %>"><i class="fa fa-rss-square"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

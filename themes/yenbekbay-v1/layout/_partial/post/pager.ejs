@@ -1,0 +1,26 @@
+<% if (page.prev || page.next) { %>
+<ul class="pager post-pager">
+  <% if (page.next) { %>
+    <li class="next">
+      <a href="<%- url_for(page.next.path) %>">
+        <% if (page.next.title) { %>
+          <%= page.next.title %>
+        <% } else { %>
+          (<%= __('No title') %>)
+        <% } %>
+      </a>
+    </li>
+  <% } %>
+  <% if (page.prev) { %>
+    <li class="prev">
+      <a href="<%- url_for(page.prev.path) %>">
+        <% if (page.prev.title) { %>
+          <%= page.prev.title %>
+        <% } else { %>
+          (<%= __('No title') %>)
+        <% } %>
+      </a>
+    </li>
+  <% } %>
+</ul>
+<% } %>

@@ -1,0 +1,42 @@
+<article id="<%= page.layout %>-<%= page.path %>" class="post">
+	<%
+	if (index) { %>
+		<%- partial('post/title', {class_name: 'post-title'}) %>
+		<%- partial('post/date', {class_name: 'post-date'}) %>
+		<% if (page.excerpt) { %>
+			<%- page.excerpt %>
+			<p class="post-readmore">
+				<a href="<%- url_for(page.path) %>#more"><%= __("Read more...") %></a>
+			</p>
+	  <% } else { %>
+	  	<%- page.content %>
+	  <% }
+	} else { %>
+		<%- page.content %>
+		<%
+		const categories = page.categories && page.categories.length;
+		const tags = page.tags && page.tags.length;
+		if (categories || tags) { %>
+			<div class="post-meta">
+				<%
+				if (categories) { %>
+					<span class="categories"><%- partial('post/category') %></span>
+				<% }
+				if (tags) { %>
+					<span class="tags"><%- partial('post/tag') %></span>
+				<% } %>
+			</div>
+			<hr>
+		<% }
+		if (!is_page()) { %>
+			<%- partial('post/date', {class_name: 'post-date'}) %>
+			<hr>
+		<% }
+	} %>
+</article>
+
+<% if (!index) { %>
+	<%- partial('post/pager') %>
+<% } else { %>
+	<hr>
+<% } %>

@@ -1,0 +1,34 @@
+<hr class="page-footer">
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <% if (config.links) { %>
+        <ul class="list-inline text-center">
+          <% config.links.forEach(link => { %>
+          <li>
+            <a title="<%= link.title %>" href="<%= link.url %>">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-<%= link.icon %> fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <% }); %>
+        </ul>
+        <% } %>
+        <p class="copyright text-muted">
+          <%= config.title %><%- config.email ? ' • ' + mail_to(config.email, __('email me')) : '' %>
+          <br>
+          <%- link_to(config.archive_dir, __('Archive')) %> • <%- link_to(config.feed.path, 'RSS') %>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<%- js('https://code.jquery.com/jquery-2.1.4.min.js') %>
+<%- js('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js') %>
+<%- js('fancybox/jquery.fancybox.min.js') %>
+<%- js('js/site') %>
+<%- partial("google-analytics") %>

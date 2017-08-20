@@ -1,0 +1,55 @@
+<%
+if (group_by_date) { %>
+  <ol class="posts">
+    <%
+    _
+      .chain(page.posts.toArray())
+      .map(post => _.assign(post, {
+        month: moment(post.date).locale(config.language).format('MMMM YYYY')
+      }))
+      .groupBy('month')
+      .map((posts, month) => ({month, posts}))
+      .value()
+      .forEach(group => { %>
+      <li class="month">
+        <h2><%= _.capitalize(group.month) %></h2>
+        <%
+        group.posts.forEach(post => { %>
+          <article>
+            <%
+            if (post.title) {
+              if (post.link) { %>
+                <a href="<%- post.link %>" target="_blank">
+                  <%= post.title ? post.title : post.link %>
+                </a>
+              <%
+              } else { %>
+                <a href="<%- config.root %><%- post.path %>"><%= post.title %></a>
+              <% }
+            } else { %>
+              <%= __('No title') %>
+            <% } %>
+            &nbsp;
+            <div class="post-date">
+              <time datetime="<%= date_xml(post.date) %>">
+                <%= date(post.date) %>
+              </time>
+            </div>
+          </article>
+        <% }); %>
+      </li>
+    <% }); %>
+  </ol>
+<% } else {
+  page.posts.toArray().forEach(post => { %>
+    <%- partial('article', {page: post, index: true}) %>
+  <% })
+  if (page.total > 1) { %>
+    <nav class="pager archive-pager" >
+      <%- paginator({
+        prev_text: '&laquo; ' + __('Prev'),
+        next_text: __('Next') + ' &raquo;'
+      }) %>
+    </nav>
+  <% }
+} %>

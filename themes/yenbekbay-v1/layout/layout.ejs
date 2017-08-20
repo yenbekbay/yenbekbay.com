@@ -1,0 +1,29 @@
+<%
+var type = 'index';
+if (is_post()) {
+  type = 'post';
+} else if (is_archive() || is_category() || is_tag()) {
+  type = 'archive';
+} else if (is_page()) {
+  type = 'page';
+} %>
+
+<!DOCTYPE html>
+<html itemscope itemtype='http://schema.org/Blog'>
+
+<%- partial('_partial/head') %>
+
+<body>
+<%- partial('_partial/navbar') %>
+<%- partial('_partial/header') %>
+<div class="container">
+  <div class="row content content-<%= type %>">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <%- body %>
+    </div>
+  </div>
+</div>
+<%- partial('_partial/footer') %>
+</body>
+
+</html>

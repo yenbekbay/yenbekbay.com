@@ -1,0 +1,61 @@
+<%
+var title = page.title;
+var description = _.truncate(page.excerpt || strip_html(page.content), {length: 50});
+if (is_home()) {
+  description = config.subtitle;
+} else if (is_archive()) {
+  title = __('Archive');
+  if (is_month()) {
+    title += ': ' + page.year + '/' + page.month;
+  } else if (is_year()) {
+    title += ': ' + page.year;
+  }
+} else if (is_category()) {
+  title = __('Category') + ': ' + page.category;
+} else if (is_tag()) {
+  title = __('Tag') + ': ' + page.tag;
+}
+if (title !== config.title) {
+  title = (title ? title + ' | ' : '') + config.title;
+}
+
+var tags = {
+  title,
+  description,
+  type: is_page() ? 'website' : 'blog',
+  twitter_id: config.twitter,
+  twitter_site: config.twitter,
+  google_plus: config.google_plus,
+  fb_admins: config.fb_admins,
+};
+if (page.backdrop || page.meta_image) {
+  tags.image = 'images/' + (page.meta_image || page.backdrop);
+}
+%>
+
+<head prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# profile: http://ogp.me/ns/profile#'>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="private">
+  <title><%= title %></title>
+  <meta name="description" content="<%= description %>">
+  <%- open_graph(tags) %>
+  <meta property='profile:first_name' content='<%= config.first_name %>'>
+  <meta property='profile:last_name' content='<%= config.last_name %>'>
+  <meta property='profile:gender' content='<%= config.gender %>'>
+  <meta property='profile:username' content='<%= config.facebook %>'>
+  <% if (config.feed.path) { %><link rel='alternative' href='/<%- config.feed.path %>' title='<%= config.title %>' type='application/atom+xml'><% } %>
+  <% if (config.favicon) { %><link rel='icon' href='<%- config.favicon %>'><% } %>
+  <%- css('https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') %>
+  <%- css('css/site.css') %>
+  <%- js('js/loadCSS.js?__inline=true') %>
+  <script type='text/javascript'>
+    loadCSS('https://fonts.googleapis.com/css?family=Ubuntu:300,500,300italic,500italic&subset=latin,cyrillic');
+    loadCSS('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+    loadCSS('<%- url_for('fancybox/jquery.fancybox.css') %>');
+  </script>
+  <!--[if lt IE 9]>
+    <script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'></script>
+    <script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'></script>
+  <![endif]-->
+</head>

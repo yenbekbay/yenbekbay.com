@@ -1,0 +1,24 @@
+<article id="about" class="post">
+  <%- page.content %>
+  <div class="projects">
+    <h2>Что я сделал</h2>
+    <% config.projects.forEach(project => { %>
+      <div class="project">
+        <div class="icon">
+          <img src="/images/<%= project.image %>" alt="<%= project.title %>">
+        </div>
+        <div class="description">
+          <p><strong><%= project.title %></strong> / <%= project.year %></p>
+          <p><%= project.description %></p>
+          <% if (project.appstore_id) { %>
+            <p><%- link_to('//itunes.apple.com/app/id' + project.appstore_id, 'App Store') %></p>
+          <% } else if (project.link) { %>
+            <p><%- link_to(project.link, __('Website')) %></p>
+          <% } else if (project.status) { %>
+            <p class="secondary">{{project.status}}</p>
+          <% } %>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</article>

@@ -1,7 +1,20 @@
+# macOS
+#
 .DS_Store
-Thumbs.db
-db.json
-*.log
-node_modules/
-public/
-.deploy*/
+
+# node.js
+#
+/node_modules/
+/npm-debug.log
+/yarn-error.log
+
+# Compiled files
+#
+/public/
+
+# Private environment variables
+#
+/secrets/*.env
+
+# Hexo artefacts
+/db.json

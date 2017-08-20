@@ -1,0 +1,457 @@
+@import "_variables";
+@import "_mixins";
+
+// Global Components
+
+body {
+  .sans-serif;
+  font-size: 16px;
+  color: @gray-dark;
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+  /* Gracefully degrade to `font-feature-settings` to
+  * avoid disrupting the OpenType feature cascade
+  * when possible. */
+  @supports not (font-variant-ligatures: common-ligatures) {
+    font-feature-settings: "liga";
+  }
+  /* IE doesn’t support @supports; explicitly use
+  * the prefixed version. */
+  -ms-font-feature-settings: "liga";
+  /* Best case scenario, just use `font-variant-*`. */
+  font-variant-ligatures: common-ligatures;
+}
+
+// Typography
+
+p {
+  line-height: 1.5;
+  margin: 30px 0;
+  a {
+    text-decoration: none;
+    color: @brand-primary;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  .sans-serif;
+  .heavy;
+}
+
+a {
+  color: @gray-dark;
+  &:hover, &:focus {
+    color: @brand-primary;
+  }
+}
+
+a img {
+  &:hover, &:focus {
+    cursor: zoom-in;
+  }
+}
+
+blockquote {
+  color: @gray;
+  font-style: italic;
+}
+
+hr {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  border-top: 1px solid #eee;
+  height: 0;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  &.small {
+    border: 3px solid white;
+    margin: 15px auto;
+    max-width: 100px;
+  }
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+// FontAwesome
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/fonts/fontawesome-webfont.eot?v=4.1.0');
+  src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format("embedded-opentype"),url('https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/fonts/fontawesome-webfont.woff?v=4.1.0') format("woff"),url('https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/fonts/fontawesome-webfont.ttf?v=4.1.0') format("truetype"),url('https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fa {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-rss-square:before {
+  content: "\f143";
+}
+
+// Navigation
+
+.navbar-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  .sans-serif;
+  .navbar-brand {
+    .heavy;
+  }
+  .nav li a {
+    text-transform: uppercase;
+    font-size: 12px;
+    .heavy;
+    letter-spacing: 1px;
+  }
+  @media only screen and (min-width: 768px) {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    .navbar-brand {
+      color: white;
+      padding: 20px;
+      &:hover, &:focus {
+        color: @white-faded;
+      }
+    }
+    .nav li a {
+      color: white;
+      padding: 20px;
+      &:hover, &:focus {
+        color: @white-faded;
+      }
+    }
+  }
+  @media only screen and (min-width: 1170px) {
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    &.is-fixed {
+      /* When the user scrolls down, we hide the header right above the viewport */
+      position: fixed;
+      top: -61px;
+      background-color: fade(white, 90%);
+      border-bottom: 1px solid darken(white, 5%);
+      -webkit-transition: -webkit-transform 0.3s;
+      -moz-transition: -moz-transform 0.3s;
+      transition: transform 0.3s;
+      .navbar-brand {
+        color: @gray-dark;
+        &:hover, &:focus {
+          color: @brand-primary;
+        }
+      }
+      .nav li a {
+        color: @gray-dark;
+        &:hover, &:focus {
+          color: @brand-primary;
+        }
+      }
+    }
+    &.is-visible {
+      /* If the user changes the scrolling direction, we show the header */
+      -webkit-transform: translate3d(0, 100%, 0);
+      -moz-transform: translate3d(0, 100%, 0);
+      -ms-transform: translate3d(0, 100%, 0);
+      -o-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+}
+
+// Header
+
+.header-dimmer {
+  background-color: rgba(0,0,0,0.2);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.intro-header {
+  background: no-repeat center center;
+  background-color: @gray;
+  background-attachment: scroll;
+  .background-cover;
+  margin-bottom: 50px;
+  .site-heading, .post-heading, .page-heading {
+    padding: 100px 0 50px;
+    color: white;
+    @media only screen and (min-width: 768px) {
+      padding: 150px 0;
+    }
+  }
+  .site-heading, .page-heading {
+    text-align: center;
+    h1 {
+      margin-top: 0;
+      font-size: 50px;
+    }
+    .subheading {
+      font-size: 24px;
+      line-height: 1.1;
+      display: block;
+      .sans-serif;
+      margin: 10px 0 0;
+    }
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size: 80px;
+      }
+    }
+  }
+  .post-heading {
+    h1 {
+      font-size: 35px;
+    }
+    .subheading, .meta {
+      line-height: 1.1;
+      display: block;
+    }
+    .subheading {
+      .sans-serif;
+      font-size: 24px;
+      margin: 10px 0 30px;
+    }
+    .meta {
+      .sans-serif;
+      font-style: italic;
+      font-size: 20px;
+      a {
+        color: white;
+      }
+    }
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size: 55px;
+      }
+      .subheading {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+// Post
+
+.post {
+  > .post-date, > .post-meta {
+    color: @gray;
+    font-size: 18px;
+  }
+  > .post-date {
+    font-style: italic;
+    margin: 0;
+  }
+  img, video {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+  .video-container {
+    position: relative;
+    margin-bottom: 20px;
+    padding-top: 56.25%;
+    height: 0;
+    overflow: hidden;
+    iframe, object, embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin-top: 0;
+    }
+  }
+  > .post-meta {
+   li {
+     list-style-type: none;
+   }
+    a {
+     color: @gray;
+   }
+   .categories {
+     a {
+       margin-left: 5px;
+       margin-right: 5px;
+       &:first-child {
+         margin-left: 0;
+       }
+       &:last-child {
+         margin-right: 0;
+       }
+     }
+   }
+    .post-tag-list {
+      padding: 0;
+    }
+    .post-tag-list-item {
+      display: inline-block;
+      margin-right: 10px;
+      &:before {
+        content: "#";
+      }
+    };
+  }
+}
+
+// Sections
+
+.section-heading {
+  font-size: 36px;
+  margin-top: 60px;
+  .heavy;
+}
+
+.caption {
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+  font-style: italic;
+  margin: 0;
+  display: block;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+footer {
+  padding: 50px 0 65px;
+  .list-inline {
+    margin: 0;
+    padding: 0;
+  }
+  .copyright {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+}
+
+// Button Styles
+
+.btn {
+  .sans-serif;
+  .heavy;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-radius: 0;
+  padding: 15px 25px;
+}
+
+.btn-lg {
+  font-size: 16px;
+  padding: 25px 35px;
+}
+
+.btn-default {
+  &:hover, &:focus {
+    background-color: @brand-primary;
+    border: 1px solid @brand-primary;
+    color: white;
+  }
+}
+
+// Pager Styling
+
+.post-pager {
+  margin: 20px 0 0;
+  li {
+    > a, > span {
+      .sans-serif;
+      .heavy;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+      padding: 15px 25px;
+      background-color: white;
+      border-radius: 0;
+    }
+    > a:hover, > a:focus {
+      color: white;
+      background-color: @brand-primary;
+      border: 1px solid @brand-primary;
+    }
+  }
+  .disabled {
+    > a, > a:hover, > a:focus,  > span {
+      color: @gray;
+      background-color: @gray-dark;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.archive-pager {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 95%;
+  font-weight: bold;
+  letter-spacing: .1em;
+  > a, > span {
+    .sans-serif;
+    .heavy;
+    display: inline-block;
+    padding: 6px 8px;
+    margin: 0px 5px;
+    border-radius: 4px;
+    background-clip: padding-box;
+  }
+  a {
+    text-decoration: none;
+    &:hover, &:focus {
+      color: @brand-primary;
+      background-color: @gray-light;
+    }
+  }
+  .current {
+    color: white;
+    background-color: @brand-primary;
+  }
+}
+
+// Selection
+
+::selection, ::-moz-selection {
+  color: white;
+  text-shadow: none;
+  background: @brand-primary;
+}
+
+img::selection, img::-moz-selection {
+  color: white;
+  background: transparent;
+}
+
+body {
+  webkit-tap-highlight-color: @brand-primary;
+}

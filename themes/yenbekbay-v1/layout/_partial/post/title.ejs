@@ -1,0 +1,15 @@
+<% if (page.link) { %>
+  <h2 itemprop="name" class="<%= class_name %>">
+    <a href="<%- page.link %>" target="_blank" itemprop="url"><%= page.title %></a>
+  </h2>
+<% } else if (page.title) { %>
+  <% if (index) { %>
+    <h2 itemprop="name" class="<%= class_name %>">
+      <a href="<%- config.root %><%- page.path %>"><%= page.title %></a>
+    </h2>
+  <% } else { %>
+    <h2 itemprop="name" class="<%= class_name %>">
+      <%= page.title %>
+    </h2>
+  <% } %>
+<% } %>

@@ -1,0 +1,49 @@
+<%
+var backdrop = config.default_backdrop;
+if ((is_home() || is_page() || is_post()) && page.backdrop) {
+  backdrop = page.backdrop;
+}
+
+var title = config.title;
+var subtitle = config.subtitle;
+if (is_page() || is_post()) {
+  title = page.title;
+  subtitle = page.subtitle;
+} else if (is_archive()) {
+  title = __('Archive');
+  if (is_month()) {
+    title += ': ' + page.year + '/' + page.month;
+  } else if (is_year()) {
+    title += ': ' + page.year;
+  }
+  subtitle = '';
+} else if (is_category()) {
+  title = _('Category') + ': ' + page.category;
+  subtitle = '';
+} else if (is_tag()) {
+  title = __('Tag') + ': ' + page.tag;
+  subtitle = '';
+} %>
+
+<header class="intro-header" style="background-image: url('/images/<%= backdrop %>');">
+  <div class="header-dimmer"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <% if (is_post()) { %>
+          <div class="post-heading">
+            <h1><%= page.title %></h1>
+          </div>
+        <% } else { %>
+          <div class="site-heading">
+            <h1><%= title %></h1>
+            <% if (subtitle) { %>
+              <hr class="small">
+              <span class="subheading"><%= subtitle %></span>
+            <% } %>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</header>
