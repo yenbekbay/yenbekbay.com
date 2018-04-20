@@ -55,41 +55,68 @@ menu:
 # Projects
 projects:
   -
-    title: Never Drink Alone
-    description: Одно знакомство в день с самыми крутыми людьми в Алматы.
-    image: nda.png
-    year: 2015
-    link: //neverdrinkaloneapp.com
-  -
-    title: Instamaniac
-    description: Самая удивительная и нестандартная статистика для вашего аккаунта в Инстаграме.
-    image: instamaniac.png
-    year: 2015
-    appstore_id: 1025300733
-  -
-    title: Galileo
-    description: Расширяй свой кругозор с помощью Википедии.
-    image: galileo.png
-    year: 2015
-    appstore_id: 1052000929
+    title: Сеансы
+    description: Лучшее в своем роде iOS приложение для просмотра афиши в кинотеатрах Казахстана.
+    image: seansy.png
+    year: 2015-2017
+    links:
+      -
+        url: http://seansy.kz/
+        title: Перейти на seansy.kz
+      -
+        url: https://itunes.apple.com/app/id980255991
+        title: Скачать с App Store
+      -
+        url: https://github.com/yenbekbay/seansy
+        title: Посмотреть исходный код 
   -
     title: Metio
-    description: Интуитивный местный прогноз погоды.
+    description: iOS приложение, показывающее местную погоду на простом языке со всей нужной информацией для принятия решения.
     image: metio.png
-    year: 2015
-    appstore_id: 1055506207
+    year: 2015-2018
+    links:
+      -
+        url: https://itunes.apple.com/app/id1055506207
+        title: Скачать с App Store
+      -
+        url: https://github.com/yenbekbay/metio
+        title: Посмотреть исходный код 
+  -
+    title: Never Drink Alone
+    description: iOS приложение, которое предлагает одно деловое знакомство в день с самыми интересными людьми вашего города (Проект закрыт).
+    image: nda.png
+    year: 2015-2015
+    links:
+      -
+        url: https://github.com/yenbekbay/never-drink-alone
+        title: Посмотреть исходный код
   -
     title: Kogershin
-    description: Приложение для трекинга посылок Казпочты.
+    description: iOS приложение, позволяющее вам следить за вашими посылками через сервис Казпочты (Проект закрыт).
     image: kogershin.png
-    year: 2015
-    appstore_id: 1043220890
+    year: 2015-2017
+    links:
+      -
+        url: https://github.com/yenbekbay/kogershin
+        title: Посмотреть исходный код 
   -
-    title: Сеансы
-    description: Приложение для просмотра сеансов в кинотеатрах Казахстана.
-    image: seansy.png
-    year: 2015
-    appstore_id: 980255991
+    title: Galileo
+    description: iOS приложение для чтения избранных статей из Википедии (Проект закрыт).
+    image: galileo.png
+    year: 2015-2016
+    links:
+      -
+        url: https://github.com/yenbekbay/galileo
+        title: Посмотреть исходный код
+  -
+    title: Instamaniac
+    description: iOS приложение для просмотра нестандартной статистики вашего аккаунта в Инстаграме (Проект закрыт).
+    image: instamaniac.png
+    year: 2015-2016
+    links:
+      -
+        url: https://github.com/yenbekbay/instamaniac
+        title: Посмотреть исходный код
 
 # URL
 url: https://yenbekbay.me

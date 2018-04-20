@@ -10,13 +10,9 @@
         <div class="description">
           <p><strong><%= project.title %></strong> / <%= project.year %></p>
           <p><%= project.description %></p>
-          <% if (project.appstore_id) { %>
-            <p><%- link_to('//itunes.apple.com/app/id' + project.appstore_id, 'App Store') %></p>
-          <% } else if (project.link) { %>
-            <p><%- link_to(project.link, __('Website')) %></p>
-          <% } else if (project.status) { %>
-            <p class="secondary">{{project.status}}</p>
-          <% } %>
+          <% project.links.forEach(link => { %>
+            <p><%- link_to(link.url, link.title) %></p>
+          <% }); %>
         </div>
       </div>
     <% }); %>
