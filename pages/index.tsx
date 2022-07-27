@@ -8,7 +8,7 @@ export default function Index() {
   }
   return (
     <RevealGroup asChild>
-      <article className="prose-headings:font-display container prose prose-lg prose-neutral p-4 font-semibold leading-6 prose-headings:font-bold prose-a:font-semibold dark:prose-invert lg:prose-2xl lg:p-6">
+      <article className="container prose prose-lg prose-neutral p-4 font-semibold leading-6 prose-headings:font-bold prose-a:font-semibold dark:prose-invert lg:prose-2xl lg:p-6">
         <RevealGroupItem asChild>
           <p className="md:text-2xl lg:text-4xl">👋</p>
         </RevealGroupItem>
