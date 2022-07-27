@@ -25,14 +25,12 @@ export default function MyApp({Component, pageProps}: AppProps) {
 
 function ErrorFallback({error}: FallbackProps) {
   return (
-    <main>
-      <section className="flex flex-col py-28">
-        <h1>Something went wrong!</h1>
+    <article className="prose-headings:font-display container prose prose-lg prose-neutral p-4 font-semibold leading-6 dark:prose-invert lg:p-6">
+      <h1>Something went wrong!</h1>
 
-        <pre className="alert alert-error items-start whitespace-pre-line font-mono">
-          {error.message}
-        </pre>
-      </section>
-    </main>
+      <pre className="items-start whitespace-pre-line rounded-md border border-red-600 bg-white font-mono text-red-600 dark:border-red-400 dark:bg-black dark:text-red-400">
+        {error.message}
+      </pre>
+    </article>
   )
 }
