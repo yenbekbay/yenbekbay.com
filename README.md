@@ -1,3 +1,3 @@
 # yenbekbay.com
 
-[naaw.studio](https://naaw.studio)
+[yenbekbay.com](https://yenbekbay.com)
