@@ -1,15 +1,14 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 /**
- * @type {import('tailwindcss/tailwind-config').TailwindConfig}
+ * @type {import('tailwindcss').Config}
  */
 module.exports = {
   content: ['./{components,pages}/**/*.{ts,tsx}'],
-  darkMode: 'media',
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Rumeur', ...defaultTheme.fontFamily.sans],
+        sans: ['PP Neue Montreal', ...defaultTheme.fontFamily.sans],
       },
     },
   },

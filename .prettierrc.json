@@ -1,0 +1,12 @@
+{
+  "bracketSpacing": false,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "importOrder": ["^node:(.+)$", "<THIRD_PARTY_MODULES>", "^#/(.+)$", "^[./]"],
+  "importOrderSortSpecifiers": true,
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-packagejson"
+  ]
+}

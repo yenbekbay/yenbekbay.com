@@ -1,0 +1,41 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  font-weight: 530;
+  font-display: swap;
+  font-style: normal;
+  src: url('/fonts/PPNeueMontreal-Medium.woff2') format('woff2');
+}
+
+@layer components {
+  .prose {
+    @apply tracking-wide leading-tight;
+    --tw-prose-body: theme(colors.slate[300]);
+    --tw-prose-headings: theme(colors.white);
+    --tw-prose-lead: theme(colors.slate[400]);
+    --tw-prose-links: theme(colors.white);
+    --tw-prose-bold: theme(colors.white);
+    --tw-prose-counters: theme(colors.slate[400]);
+    --tw-prose-bullets: theme(colors.slate[600]);
+    --tw-prose-hr: theme(colors.slate[700]);
+    --tw-prose-quotes: theme(colors.slate[100]);
+    --tw-prose-quote-borders: theme(colors.slate[700]);
+    --tw-prose-captions: theme(colors.slate[400]);
+    --tw-prose-code: theme(colors.white);
+    --tw-prose-pre-code: theme(colors.slate[300]);
+    --tw-prose-pre-bg: rgb(0 0 0 / 50%);
+    --tw-prose-th-borders: theme(colors.slate[600]);
+    --tw-prose-td-borders: theme(colors.slate[700]);
+  }
+
+  .prose :where(a):not(:where([class~='not-prose'] *)) {
+    @apply hover:blur-sm focus:outline-none focus-visible:ring focus-visible:ring-white;
+  }
+
+  .prose :where(pre):not(:where([class~='not-prose'] *)) {
+    @apply items-start whitespace-pre-line rounded-md border font-mono border-red-400 bg-black text-red-400;
+  }
+}

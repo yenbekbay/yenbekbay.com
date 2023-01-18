@@ -2,18 +2,19 @@ import {Head, Html, Main, NextScript} from 'next/document'
 
 export default function MyDocument() {
   return (
-    <Html>
+    <Html className="bg-black text-xl lg:text-2xl">
       <Head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link
           rel="preload"
-          href="/fonts/Rumeur.woff2"
+          href="/fonts/PPNeueMontreal-Medium.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
         />
       </Head>
-      <body className="bg-white dark:bg-black">
+
+      <body>
         <Main />
         <NextScript />
         <GoatCounter />

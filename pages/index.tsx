@@ -1,52 +1,44 @@
-import {RevealGroup, RevealGroupItem} from 'components/Reveal'
-import {useFontLoaded} from 'hooks/useFontLoaded'
+import {Article} from '#/components/Article'
+import {RevealGroup, RevealGroupItem} from '#/components/Reveal'
 
 export default function Index() {
-  const fontLoaded = useFontLoaded('Rumeur')
-  if (!fontLoaded) {
-    return null
-  }
   return (
     <RevealGroup asChild>
-      <article className="container prose prose-lg prose-neutral p-4 font-semibold leading-6 prose-headings:font-bold prose-a:font-semibold dark:prose-invert lg:prose-2xl lg:p-6">
+      <Article>
         <RevealGroupItem asChild>
-          <p className="md:text-2xl lg:text-4xl">👋</p>
-        </RevealGroupItem>
-
-        <RevealGroupItem asChild>
-          <p className="md:text-2xl lg:text-4xl">
-            I'm Ayan, a full-stack software engineer based in Almaty,
-            Kazakhstan.
+          <p>
+            Ayan Yenbekbay is a software developer based in Almaty, Kazakhstan.
           </p>
         </RevealGroupItem>
 
         <RevealGroupItem asChild>
-          <p className="md:text-2xl lg:text-4xl">
-            Let's get in touch! Follow me on{' '}
-            <a
-              href="https://instagram.com/yenbekbay"
-              target="_blank"
-              rel="noopener noreferrer">
+          <p>
+            He is currently a founding partner at{' '}
+            <a href="https://utility-first.co" target="_blank">
+              Utility First
+            </a>
+            , where he helps emerging and established start-ups build delightful
+            digital products.
+          </p>
+        </RevealGroupItem>
+
+        <RevealGroupItem asChild>
+          <p>
+            <a href="mailto:ayan.yenb@gmail.com" target="_blank">
+              Email
+            </a>
+            <br />
+            <a href="https://instagram.com/yenbekbay" target="_blank">
               Instagram
-            </a>{' '}
-            or{' '}
-            <a
-              href="https://twitter.com/yenbekbay"
-              target="_blank"
-              rel="noopener noreferrer">
+            </a>
+            <br />
+            <a href="https://twitter.com/yenbekbay" target="_blank">
               Twitter
             </a>
-            , or send me an{' '}
-            <a
-              href="mailto:ayan.yenb@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer">
-              email
-            </a>
-            .
+            <br />
           </p>
         </RevealGroupItem>
-      </article>
+      </Article>
     </RevealGroup>
   )
 }

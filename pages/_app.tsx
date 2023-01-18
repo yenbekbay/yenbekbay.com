@@ -1,23 +1,31 @@
+import {Article} from '#/components/Article'
+import '#/styles/globals.css'
 import type {AppProps} from 'next/app'
 import Head from 'next/head'
+import React from 'react'
 import type {FallbackProps} from 'react-error-boundary'
 import {ErrorBoundary} from 'react-error-boundary'
-import '__generated__/tailwind.css'
 
 export default function MyApp({Component, pageProps}: AppProps) {
+  const [fontsReady, setFontsReady] = React.useState(false)
+  React.useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.fonts.ready.finally(() => setFontsReady(true))
+    }
+  }, [])
   return (
     <>
       <Head>
         <title>Ayan Yenbekbay</title>
         <meta
-          content="I'm Ayan, a full-stack software engineer based in Almaty, Kazakhstan."
+          content="Ayan Yenbekbay is a software developer based in Almaty, Kazakhstan."
           name="description"
         />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
       </Head>
 
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Component {...pageProps} />
+        {fontsReady && <Component {...pageProps} />}
       </ErrorBoundary>
     </>
   )
@@ -25,12 +33,9 @@ export default function MyApp({Component, pageProps}: AppProps) {
 
 function ErrorFallback({error}: FallbackProps) {
   return (
-    <article className="container prose prose-lg prose-neutral p-4 font-semibold leading-6 prose-headings:font-bold prose-a:font-semibold dark:prose-invert lg:prose-2xl lg:p-6">
+    <Article>
       <h1>Something went wrong!</h1>
-
-      <pre className="items-start whitespace-pre-line rounded-md border border-red-600 bg-white font-mono text-red-600 dark:border-red-400 dark:bg-black dark:text-red-400">
-        {error.message}
-      </pre>
-    </article>
+      <pre>{error.message}</pre>
+    </Article>
   )
 }
