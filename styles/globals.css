@@ -14,6 +14,8 @@
   html {
     @apply bg-black text-xl lg:text-2xl;
     font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
     -webkit-text-stroke: 1px transparent;
   }
 }
