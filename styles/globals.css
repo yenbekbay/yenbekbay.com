@@ -2,12 +2,20 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@font-face {
-  font-family: 'PP Neue Montreal';
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-  src: url('/fonts/PPNeueMontreal-Medium.woff2') format('woff2');
+@layer base {
+  @font-face {
+    font-family: 'PP Neue Montreal';
+    font-weight: 530;
+    font-display: block;
+    font-style: normal;
+    src: url('/fonts/PPNeueMontreal-Medium.woff2') format('woff2');
+  }
+
+  html {
+    @apply bg-black text-xl lg:text-2xl;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
 }
 
 @layer components {
@@ -32,7 +40,7 @@
   }
 
   .prose :where(a):not(:where([class~='not-prose'] *)) {
-    @apply font-medium hover:blur-sm focus:outline-none focus-visible:ring focus-visible:ring-white;
+    @apply underline-offset-[3px] decoration-[3px] font-medium hover:blur-sm focus:outline-none focus-visible:ring focus-visible:ring-white;
   }
 
   .prose :where(pre):not(:where([class~='not-prose'] *)) {

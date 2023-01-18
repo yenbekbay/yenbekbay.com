@@ -2,7 +2,7 @@ import {Head, Html, Main, NextScript} from 'next/document'
 
 export default function MyDocument() {
   return (
-    <Html className="bg-black text-xl lg:text-2xl subpixel-antialiased">
+    <Html>
       <Head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link
