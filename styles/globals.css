@@ -12,7 +12,7 @@
 
 @layer components {
   .prose {
-    @apply tracking-wide leading-tight;
+    @apply font-medium tracking-wide leading-tight;
     --tw-prose-body: theme(colors.slate[300]);
     --tw-prose-headings: theme(colors.white);
     --tw-prose-lead: theme(colors.slate[400]);
@@ -32,7 +32,7 @@
   }
 
   .prose :where(a):not(:where([class~='not-prose'] *)) {
-    @apply hover:blur-sm focus:outline-none focus-visible:ring focus-visible:ring-white;
+    @apply font-medium hover:blur-sm focus:outline-none focus-visible:ring focus-visible:ring-white;
   }
 
   .prose :where(pre):not(:where([class~='not-prose'] *)) {
