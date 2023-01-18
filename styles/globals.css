@@ -22,7 +22,7 @@
 
 @layer components {
   .prose {
-    @apply font-medium tracking-wide leading-tight;
+    @apply font-[530] tracking-wide leading-tight;
     --tw-prose-body: theme(colors.slate[300]);
     --tw-prose-headings: theme(colors.white);
     --tw-prose-lead: theme(colors.slate[400]);
@@ -42,7 +42,7 @@
   }
 
   .prose :where(a):not(:where([class~='not-prose'] *)) {
-    @apply underline-offset-[3px] decoration-[3px] font-medium hover:blur-sm focus:outline-none focus-visible:ring focus-visible:ring-white;
+    @apply underline-offset-[3px] decoration-[3px] font-[530] hover:blur-sm focus:outline-none focus-visible:ring focus-visible:ring-white;
   }
 
   .prose :where(pre):not(:where([class~='not-prose'] *)) {
