@@ -11,7 +11,7 @@ export const Article = React.forwardRef(function Article(
   return (
     <article
       ref={forwardedRef}
-      className={classNames('prose p-4 prose-2xl', classNames)}
+      className={classNames('prose p-2', classNames)}
       {...restProps}
     >
       {children}

@@ -12,7 +12,7 @@
   }
 
   html {
-    @apply bg-black text-xl lg:text-2xl subpixel-antialiased;
+    @apply bg-black text-xl subpixel-antialiased;
     font-synthesis: none;
   }
 }
@@ -39,7 +39,7 @@
   }
 
   .prose :where(a):not(:where([class~='not-prose'] *)) {
-    @apply underline-offset-[3px] font-medium hover:blur-sm focus:outline-none focus-visible:ring focus-visible:ring-white;
+    @apply font-medium hover:blur-sm focus:outline-none focus-visible:ring focus-visible:ring-white;
   }
 
   .prose :where(pre):not(:where([class~='not-prose'] *)) {
