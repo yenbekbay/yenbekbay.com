@@ -18,7 +18,7 @@ export default function MyApp({Component, pageProps}: AppProps) {
       <Head>
         <title>Ayan Yenbekbay</title>
         <meta
-          content="Ayan Yenbekbay is a software developer based in Almaty, Kazakhstan."
+          content="Ayan Yenbekbay is a software engineer based in Almaty, Kazakhstan."
           name="description"
         />
         <meta name="viewport" content="width=device-width,initial-scale=1" />

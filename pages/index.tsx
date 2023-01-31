@@ -7,7 +7,7 @@ export default function Index() {
       <Article>
         <RevealGroupItem asChild>
           <p>
-            Ayan Yenbekbay is a software developer based in Almaty, Kazakhstan.
+            Ayan Yenbekbay is a software engineer based in Almaty, Kazakhstan.
           </p>
         </RevealGroupItem>
 
