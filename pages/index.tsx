@@ -13,12 +13,14 @@ export default function Index() {
 
         <RevealGroupItem asChild>
           <p>
-            He is currently a founding partner at{' '}
+            He specializes in digital products across the web and mobile
+            platforms, striving for beautiful execution and great user
+            experience. Through his practice,{' '}
             <a href="https://utility-first.co" target="_blank">
               Utility First
             </a>
-            , where he helps emerging and established start-ups build delightful
-            digital products.
+            , he collaborates with a passionate net of talent, delivering
+            complete solutions for clients around the world.
           </p>
         </RevealGroupItem>
 
