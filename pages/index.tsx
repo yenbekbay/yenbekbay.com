@@ -6,14 +6,12 @@ export default function Index() {
     <RevealGroup asChild>
       <Article>
         <RevealGroupItem asChild>
-          <p>
-            Ayan Yenbekbay
-          </p>
+          <p>Ayan Yenbekbay</p>
         </RevealGroupItem>
 
         <RevealGroupItem asChild>
           <p>
-          Design-adjacent software engineer. Based in Almaty, Kazakhstan.
+            Software engineer and communication designer in Almaty, Kazakhstan.
           </p>
         </RevealGroupItem>
 
