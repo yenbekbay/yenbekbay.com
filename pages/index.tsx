@@ -10,11 +10,7 @@ export default function Index() {
         </RevealGroupItem>
 
         <RevealGroupItem asChild>
-          <p>
-            Designer with a software engineering background.
-            <br />
-            Based in Almaty,&nbsp;Kazakhstan.
-          </p>
+          <p>Designer, software engineer. Almaty,&nbsp;Kazakhstan.</p>
         </RevealGroupItem>
 
         <RevealGroupItem asChild>
